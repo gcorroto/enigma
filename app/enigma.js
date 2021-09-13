@@ -25,9 +25,9 @@ const convertPatron = (word, translate) => {
     if(letters) {
         letters.forEach(element => {
             let currentLetter = element;
-            const index = alphabet.findIndex(letter => letter == element.toUpperCase());
-            if(index > 0 || element.toUpperCase() === 'A') {
-                const isUpper = alphabet.some(letter => letter == element);
+            const index = alphabet.findIndex(letter => letter === element.toUpperCase());
+            if(index >= 0) {
+                const isUpper = alphabet.some(letter => letter === element);
                 currentLetter = isUpper ? alphabet[translate(index)] : alphabet[translate(index)].toLowerCase();
             }
             currentWord += currentLetter;
@@ -43,11 +43,11 @@ const convert = (word, translate) => {
     return word;  
 }
 
-exports.encode = function(word) {
+exports.encode = (word) => {
     return convert(word, translateEncoding);
 };
 
-exports.decode = function(word) {
+exports.decode = (word) => {
     return convert(word, translateDecoding);
 };
 
