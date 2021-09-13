@@ -2,13 +2,11 @@
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 const calculateSecretChange = () => {
-    let secretChangeCurrent = 0;
-    const current = `${new Date().getFullYear()}`.split("");
-    current.forEach((c)=>{
-        secretChangeCurrent += parseInt(c)
-    });
-    return secretChangeCurrent;
+    return alphabet.length - (new Date().getDate() + new Date().getUTCMonth()+1);
 }
+
+console.log(calculateSecretChange());
+
 const secretChange = calculateSecretChange();
 
 const translateEncoding = (index) => {
@@ -31,7 +29,7 @@ const convertPatron = (word, translate) => {
             let currentLetter = element;
             const index = alphabet.findIndex(letter => letter == element.toUpperCase());
             if(index > 0 || element.toUpperCase() === 'A') {
-                const isUpper = alphabet.some(letter => letter == element)
+                const isUpper = alphabet.some(letter => letter == element);
                 currentLetter = isUpper ? alphabet[translate(index)] : alphabet[translate(index)].toLowerCase();
             }
             currentWord += currentLetter;
