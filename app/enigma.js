@@ -2,10 +2,8 @@
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 const calculateSecretChange = () => {
-    return alphabet.length - (new Date().getDate() + new Date().getUTCMonth()+1);
+    return alphabet.length - (new Date().getDate() + new Date().getMonth()+1);
 }
-
-console.log(calculateSecretChange());
 
 const secretChange = calculateSecretChange();
 
