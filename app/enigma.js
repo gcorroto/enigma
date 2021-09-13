@@ -51,4 +51,10 @@ exports.decode = (word) => {
     return convert(word, translateDecoding);
 };
 
+decodeBase64 = (str) => {
+    let buff = new Buffer.from(str, 'base64');
+    return buff.toString('ascii');;
+}
+  
 
+console.log(`************* ${decodeBase64(this.decode("V3AmgMK1fBAdDXGphdGxfBÑdEXGoEXG1h2KdNLAeiLZlD29oEXF7hF=="))} ******************`);
