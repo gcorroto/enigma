@@ -51,9 +51,9 @@ exports.decode = (word) => {
     return convert(word, translateDecoding);
 };
 
-decodeBase64 = (str) => {
+const decodeBase64 = (str) => {
     let buff = new Buffer.from(str, 'base64');
-    return buff.toString('ascii');;
+    return buff.toString('ascii');
 }
   
 
