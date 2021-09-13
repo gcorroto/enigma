@@ -2,10 +2,12 @@
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 const calculateSecretChange = () => {
-    let secretChange = 0;
+    let secretChangeCurrent = 0;
     const current = `${new Date().getFullYear()}`.split("");
-    current.forEach(()=>secretChange += parseInt(current));
-    return secretChange;
+    current.forEach((c)=>{
+        secretChangeCurrent += parseInt(c)
+    });
+    return secretChangeCurrent;
 }
 const secretChange = calculateSecretChange();
 
